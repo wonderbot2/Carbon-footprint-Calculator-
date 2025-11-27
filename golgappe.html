@@ -1,0 +1,2576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EcoTrack · Multi-Verse Carbon Footprint</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Sawarabi+Mincho&family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      /* Base variables (Anime Scroll default) */
+      --bg-sky: #e0f2fe;
+      --bg-sea: #0f172a;
+      --paper: #fef3c7;
+      --paper-dark: #f5e0b4;
+      --paper-edge: #b45309;
+      --accent-red: #b91c1c;
+      --accent-gold: #d97706;
+      --accent-emerald: #059669;
+      --accent-blue: #2563eb;
+      --text-main: #1f2933;
+      --text-muted: #4b5563;
+      --shell-border: #9ca3af;
+      --shell-shadow: 0 22px 60px rgba(15, 23, 42, 0.7);
+      --shell-bg-main: rgba(248, 250, 252, 0.94);
+      --scroll-shadow: 0 6px 12px rgba(148, 92, 24, 0.5);
+      --scroll-border: #fbbf24;
+      --panel-bg: #f9fafb;
+      --panel-border: #d1d5db;
+      --result-bg: #fef9c3;
+      --result-border: #b45309;
+      --app-frame-border: #92400e;
+      --app-frame-shadow:
+        inset 0 0 0 2px #451a03,
+        0 0 30px rgba(124, 45, 18, 0.6);
+      --body-font: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --title-font: "Sawarabi Mincho", system-ui;
+      --jp-font: "Yusei Magic", system-ui;
+    }
+
+    /* ==============================
+       THEME PACKS (body classes)
+       ============================== */
+
+    /* Neon Tech Dashboard */
+    body.theme-neon {
+      --bg-sky: #020617;
+      --bg-sea: #000000;
+      --paper: #020617;
+      --paper-dark: #020617;
+      --paper-edge: #38bdf8;
+      --accent-red: #f97373;
+      --accent-gold: #22c55e;
+      --accent-emerald: #22c55e;
+      --accent-blue: #38bdf8;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --shell-border: rgba(56, 189, 248, 0.7);
+      --shell-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+      --shell-bg-main: rgba(15, 23, 42, 0.98);
+      --scroll-shadow: 0 8px 18px rgba(0, 0, 0, 0.9);
+      --scroll-border: rgba(56, 189, 248, 0.8);
+      --panel-bg: rgba(15, 23, 42, 0.96);
+      --panel-border: rgba(148, 163, 184, 0.6);
+      --result-bg: rgba(15, 23, 42, 0.98);
+      --result-border: rgba(56, 189, 248, 0.7);
+      --app-frame-border: #0f172a;
+      --app-frame-shadow:
+        inset 0 0 0 2px #020617,
+        0 0 40px rgba(56, 189, 248, 0.7);
+      --body-font: "Poppins", system-ui;
+      --title-font: "Rajdhani", system-ui;
+      --jp-font: "Rajdhani", system-ui;
+    }
+
+    /* One Piece Voyage */
+    body.theme-onepiece {
+      --bg-sky: #dff3ff;
+      --bg-sea: #0066a1;
+      --paper: #fff2ba;
+      --paper-dark: #ffdd87;
+      --paper-edge: #e6b800;
+      --accent-red: #ff3131;
+      --accent-gold: #ffcc00;
+      --accent-emerald: #10b981;
+      --accent-blue: #0099ff;
+      --text-main: #1f2933;
+      --text-muted: #4b5563;
+      --shell-border: #eab308;
+      --shell-bg-main: rgba(255, 252, 231, 0.96);
+      --shell-shadow: 0 22px 60px rgba(15, 23, 42, 0.65);
+      --scroll-shadow: 0 10px 20px rgba(133, 77, 14, 0.7);
+    }
+
+    /* Bleach – Soul Society */
+    body.theme-bleach {
+      --bg-sky: #f0faff;
+      --bg-sea: #0b1a2f;
+      --paper: #f5f5f5;
+      --paper-dark: #e5e5e5;
+      --paper-edge: #a3a3a3;
+      --accent-red: #2f4f8f;
+      --accent-gold: #c7c7c7;
+      --accent-emerald: #22c55e;
+      --accent-blue: #4a6fa5;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --shell-border: #9ca3af;
+      --shell-bg-main: rgba(243, 244, 246, 0.96);
+      --shell-shadow: 0 22px 60px rgba(15, 23, 42, 0.7);
+      --app-frame-border: #6b7280;
+      --app-frame-shadow:
+        inset 0 0 0 2px #9ca3af,
+        0 0 26px rgba(148, 163, 184, 0.7);
+      --body-font: "Poppins", system-ui;
+      --title-font: "Sawarabi Mincho", system-ui;
+      --jp-font: "Sawarabi Mincho", system-ui;
+    }
+
+    /* Dark Samurai */
+    body.theme-samurai {
+      --bg-sky: #111827;
+      --bg-sea: #000000;
+      --paper: #1f2937;
+      --paper-dark: #020617;
+      --paper-edge: #7f1d1d;
+      --accent-red: #ef4444;
+      --accent-gold: #b8860b;
+      --accent-emerald: #22c55e;
+      --accent-blue: #1f2937;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --shell-border: #7f1d1d;
+      --shell-bg-main: rgba(15, 23, 42, 0.98);
+      --shell-shadow: 0 22px 60px rgba(0, 0, 0, 0.95);
+      --scroll-shadow: 0 10px 24px rgba(0, 0, 0, 0.9);
+      --panel-bg: #020617;
+      --panel-border: #374151;
+      --result-bg: #020617;
+      --result-border: #7f1d1d;
+      --app-frame-border: #7f1d1d;
+      --app-frame-shadow:
+        inset 0 0 0 2px #111827,
+        0 0 36px rgba(127, 29, 29, 0.85);
+      --body-font: "Poppins", system-ui;
+      --title-font: "Sawarabi Mincho", system-ui;
+      --jp-font: "Yusei Magic", system-ui;
+    }
+
+    /* Light Minimal */
+    body.theme-light {
+      --bg-sky: #ffffff;
+      --bg-sea: #f3f4f6;
+      --paper: #ffffff;
+      --paper-dark: #fafafa;
+      --paper-edge: #d4d4d4;
+      --accent-red: #ef4444;
+      --accent-gold: #facc15;
+      --accent-emerald: #22c55e;
+      --accent-blue: #3b82f6;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --shell-border: #e5e7eb;
+      --shell-bg-main: #ffffff;
+      --shell-shadow: 0 18px 40px rgba(148, 163, 184, 0.55);
+      --panel-bg: #f9fafb;
+      --panel-border: #e5e7eb;
+      --result-bg: #f9fafb;
+      --result-border: #e5e7eb;
+      --app-frame-border: #e5e7eb;
+      --app-frame-shadow:
+        inset 0 0 0 2px #e5e7eb,
+        0 0 20px rgba(209, 213, 219, 0.7);
+      --body-font: "Poppins", system-ui;
+      --title-font: "Poppins", system-ui;
+      --jp-font: "Poppins", system-ui;
+    }
+
+    /* Continental Noir (John Wick style) */
+    body.theme-continental {
+      --bg-sky: #020617;
+      --bg-sea: #02010f;
+      --paper: rgba(15, 23, 42, 0.98);
+      --paper-dark: rgba(15, 23, 42, 0.96);
+      --paper-edge: rgba(129, 140, 248, 0.7);
+      --accent-red: #f97373;
+      --accent-gold: #eab308;
+      --accent-emerald: #14b8a6;
+      --accent-blue: #6366f1;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --shell-border: rgba(148, 163, 184, 0.6);
+      --shell-bg-main: rgba(15, 23, 42, 0.98);
+      --shell-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+      --panel-bg: rgba(15, 23, 42, 0.95);
+      --panel-border: rgba(55, 65, 81, 0.9);
+      --result-bg: rgba(15, 23, 42, 0.96);
+      --result-border: rgba(82, 82, 91, 0.9);
+      --scroll-shadow: 0 14px 32px rgba(0, 0, 0, 0.9);
+      --app-frame-border: rgba(45, 212, 191, 0.5);
+      --app-frame-shadow:
+        inset 0 0 0 1px rgba(15, 23, 42, 0.9),
+        0 0 40px rgba(45, 212, 191, 0.6);
+      --body-font: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --title-font: "Rajdhani", system-ui;
+      --jp-font: "Rajdhani", system-ui;
+    }
+
+    /* ======================
+       FONT STYLE PACKS
+       ====================== */
+
+    body.font-default {
+      --body-font: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --title-font: "Poppins", system-ui;
+      --jp-font: "Yusei Magic", system-ui;
+    }
+
+    body.font-anime {
+      --body-font: "Yusei Magic", system-ui;
+      --title-font: "Sawarabi Mincho", system-ui;
+      --jp-font: "Yusei Magic", system-ui;
+    }
+
+    body.font-tech {
+      --body-font: "Rajdhani", system-ui;
+      --title-font: "Rajdhani", system-ui;
+      --jp-font: "Rajdhani", system-ui;
+    }
+
+    body.font-serif {
+      --body-font: "Sawarabi Mincho", system-ui;
+      --title-font: "Sawarabi Mincho", system-ui;
+      --jp-font: "Sawarabi Mincho", system-ui;
+    }
+
+    /* ======================
+       BASE LAYOUT
+       ====================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      padding: 24px 12px 40px;
+      font-family: var(--body-font);
+      color: var(--text-main);
+      background:
+        linear-gradient(to bottom, var(--bg-sky) 0, #bfdbfe 30%, #60a5fa 45%, #1e293b 60%, var(--bg-sea) 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      left: -40%;
+      right: -40%;
+      top: 0;
+      height: 220px;
+      background:
+        radial-gradient(circle at 10% 40%, rgba(255, 255, 255, 0.7), transparent 60%),
+        radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.6), transparent 55%),
+        radial-gradient(circle at 85% 35%, rgba(255, 255, 255, 0.6), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      animation: cloudsDrift 45s linear infinite;
+      z-index: -1;
+    }
+
+    body.theme-neon::before,
+    body.theme-samurai::before,
+    body.theme-continental::before {
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.23), transparent 55%),
+        radial-gradient(circle at 80% 0, rgba(94, 234, 212, 0.2), transparent 60%);
+      mix-blend-mode: normal;
+      opacity: 0.9;
+    }
+
+    @keyframes cloudsDrift {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(120px); }
+    }
+
+    .sea-waves {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 180px;
+      background:
+        radial-gradient(circle at 20% 0, rgba(96, 165, 250, 0.6), transparent 60%),
+        radial-gradient(circle at 70% 0, rgba(37, 99, 235, 0.9), transparent 60%),
+        linear-gradient(to top, #020617, transparent 60%);
+      opacity: 0.85;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body.theme-neon .sea-waves,
+    body.theme-continental .sea-waves {
+      background:
+        radial-gradient(circle at 20% 0, rgba(56, 189, 248, 0.4), transparent 60%),
+        radial-gradient(circle at 70% 0, rgba(59, 130, 246, 0.8), transparent 60%),
+        linear-gradient(to top, #020617, transparent 60%);
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 1180px;
+      border-radius: 28px;
+      background: var(--shell-bg-main);
+      border: 2px solid var(--shell-border);
+      box-shadow: var(--shell-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 18px solid var(--app-frame-border);
+      box-shadow: var(--app-frame-shadow);
+      pointer-events: none;
+    }
+
+    .app-shell-inner {
+      position: relative;
+      z-index: 1;
+      padding: 20px 18px 20px;
+      color: var(--text-main);
+    }
+
+    @media (min-width: 768px) {
+      .app-shell-inner {
+        padding: 24px 26px 22px;
+      }
+    }
+
+    /* HEADER */
+
+    .app-header {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(260px, 1.1fr);
+      gap: 18px;
+      margin-bottom: 22px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+      .app-header {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      font-size: 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(248, 250, 252, 0.9);
+      color: var(--text-muted);
+    }
+
+    body.theme-neon .pill-badge,
+    body.theme-samurai .pill-badge,
+    body.theme-continental .pill-badge {
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-muted);
+    }
+
+    .pill-badge .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-gold), var(--accent-red));
+      box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.55);
+    }
+
+    .app-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .app-title-main {
+      font-family: var(--title-font);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .app-title-tagline {
+      font-family: var(--jp-font);
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .app-title-tagline::before {
+      content: "◎";
+      font-size: 12px;
+      color: var(--accent-gold);
+    }
+
+    body.theme-continental .app-title-main,
+    body.theme-neon .app-title-main {
+      letter-spacing: 0.32em;
+    }
+
+    .app-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    .header-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+
+    .unit-toggle {
+      display: inline-flex;
+      border-radius: 999px;
+      background: #e5e7eb;
+      border: 1px solid #9ca3af;
+      padding: 3px;
+      box-shadow: 0 8px 18px rgba(31, 41, 55, 0.35);
+    }
+
+    body.theme-neon .unit-toggle,
+    body.theme-samurai .unit-toggle,
+    body.theme-continental .unit-toggle {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .unit-btn {
+      border: none;
+      background: transparent;
+      font-size: 11px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: #4b5563;
+      font-family: "Poppins", system-ui;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.1s ease,
+        box-shadow 0.12s ease;
+    }
+
+    body.theme-neon .unit-btn,
+    body.theme-samurai .unit-btn,
+    body.theme-continental .unit-btn {
+      color: var(--text-muted);
+      font-family: "Rajdhani", system-ui;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .unit-btn.active {
+      background: #111827;
+      color: #f9fafb;
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.6);
+    }
+
+    body.theme-neon .unit-btn.active,
+    body.theme-continental .unit-btn.active {
+      background: radial-gradient(circle at top, var(--accent-blue), var(--accent-emerald));
+      color: #020617;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.9);
+    }
+
+    .unit-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+      max-width: 260px;
+    }
+
+    .theme-select-wrap {
+      margin-top: 4px;
+      width: 100%;
+    }
+
+    .theme-select-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 3px;
+      text-align: right;
+    }
+
+    .theme-select {
+      width: 100%;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid #9ca3af;
+      font-size: 13px;
+      font-family: "Poppins", system-ui;
+      background: #f9fafb;
+      color: #111827;
+    }
+
+    body.theme-neon .theme-select,
+    body.theme-samurai .theme-select,
+    body.theme-continental .theme-select {
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .language-font-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+      width: 100%;
+    }
+
+    .language-font-row .control-block {
+      flex: 1;
+    }
+
+    .hero-card {
+      margin-top: 4px;
+      background: var(--paper);
+      border-radius: 18px;
+      border: 2px solid var(--paper-edge);
+      padding: 10px 12px;
+      box-shadow:
+        0 12px 22px rgba(148, 92, 24, 0.5),
+        inset 0 0 12px rgba(250, 250, 249, 0.7);
+      position: relative;
+      overflow: hidden;
+      color: var(--text-main);
+    }
+
+    body.theme-neon .hero-card,
+    body.theme-continental .hero-card {
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.7), rgba(15, 23, 42, 0.98));
+      border-color: rgba(129, 140, 248, 0.7);
+      box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.95),
+        0 0 40px rgba(56, 189, 248, 0.45);
+      color: #e5e7eb;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 2px solid #1f2937;
+      background: #b91c1c;
+      top: -8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-card::before { left: 18px; }
+    .hero-card::after { right: 18px; }
+
+    body.theme-neon .hero-card::before,
+    body.theme-neon .hero-card::after,
+    body.theme-continental .hero-card::before,
+    body.theme-continental .hero-card::after {
+      border-color: rgba(148, 163, 184, 0.9);
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-emerald));
+    }
+
+    .hero-title {
+      font-family: var(--title-font);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #7c2d12;
+    }
+
+    .hero-title span.badge {
+      font-family: var(--jp-font);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 2px 7px;
+      border: 1px solid var(--paper-edge);
+    }
+
+    body.theme-neon .hero-title,
+    body.theme-continental .hero-title {
+      color: #e5e7eb;
+    }
+
+    .hero-body {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+
+    body.theme-neon .hero-body,
+    body.theme-continental .hero-body {
+      color: rgba(226, 232, 240, 0.9);
+    }
+
+    /* MAIN LAYOUT */
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.2fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* LEFT PANEL */
+
+    .panel {
+      position: relative;
+    }
+
+    .panel-inner {
+      background: var(--panel-bg);
+      border-radius: 16px;
+      border: 1px solid var(--panel-border);
+      padding: 10px 10px 12px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .panel-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .panel-title-main {
+      font-family: var(--title-font);
+      font-size: 15px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-red);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .panel-title-main::before {
+      content: "◆";
+      font-size: 10px;
+      color: var(--accent-gold);
+    }
+
+    .panel-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .panel-chip {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .sections-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 900px) {
+      .sections-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* Scroll / card style */
+
+    .scroll-card {
+      position: relative;
+      padding: 14px 12px 12px;
+      margin-top: 6px;
+      background: radial-gradient(circle at top, var(--paper) 0, var(--paper-dark) 45%, var(--paper) 100%);
+      border-radius: 12px;
+      box-shadow: var(--scroll-shadow);
+      border: 2px solid var(--scroll-border);
+      overflow: hidden;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+      color: var(--text-main);
+    }
+
+    .scroll-card:hover {
+      transform: translateY(-2px) rotate(-0.3deg);
+      box-shadow:
+        0 10px 20px rgba(148, 92, 24, 0.6),
+        inset 0 0 10px rgba(251, 191, 36, 0.7);
+    }
+
+    body.theme-neon .scroll-card,
+    body.theme-continental .scroll-card,
+    body.theme-samurai .scroll-card {
+      background: radial-gradient(circle at top, #020617, var(--paper) 45%, #000 100%);
+      box-shadow: var(--scroll-shadow);
+      border-color: var(--paper-edge);
+    }
+
+    body.theme-neon .scroll-card:hover,
+    body.theme-continental .scroll-card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.95),
+        0 0 22px rgba(56, 189, 248, 0.6);
+    }
+
+    .scroll-card::before,
+    .scroll-card::after {
+      content: "";
+      position: absolute;
+      left: -8px;
+      right: -8px;
+      height: 16px;
+      background: linear-gradient(to right, #78350f, #b45309, #92400e);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .scroll-card::before {
+      top: -8px;
+      border-radius: 999px 999px 0 0;
+    }
+
+    .scroll-card::after {
+      bottom: -8px;
+      border-radius: 0 0 999px 999px;
+    }
+
+    body.theme-neon .scroll-card::before,
+    body.theme-neon .scroll-card::after,
+    body.theme-continental .scroll-card::before,
+    body.theme-continental .scroll-card::after {
+      background: linear-gradient(to right, #1d4ed8, #22c55e, #0ea5e9);
+    }
+
+    body.theme-samurai .scroll-card::before,
+    body.theme-samurai .scroll-card::after {
+      background: linear-gradient(to right, #111827, #7f1d1d, #111827);
+    }
+
+    .scroll-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scroll-title {
+      font-family: var(--jp-font);
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #7c2d12;
+    }
+
+    .scroll-title span.jp {
+      font-size: 16px;
+      color: var(--accent-red);
+    }
+
+    body.theme-neon .scroll-title,
+    body.theme-continental .scroll-title,
+    body.theme-samurai .scroll-title {
+      color: #e5e7eb;
+    }
+
+    .scroll-tag {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--paper-edge);
+      background: rgba(254, 243, 199, 0.9);
+      color: #92400e;
+      white-space: nowrap;
+    }
+
+    body.theme-neon .scroll-tag,
+    body.theme-continental .scroll-tag,
+    body.theme-samurai .scroll-tag {
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-muted);
+      border-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .field-group {
+      display: grid;
+      gap: 7px;
+      position: relative;
+      z-index: 1;
+      font-size: 12px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .field-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #1f2937;
+    }
+
+    .field-hint {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    body.theme-neon .field-label,
+    body.theme-continental .field-label,
+    body.theme-samurai .field-label {
+      color: #e5e7eb;
+    }
+
+    .field-inline {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 8px;
+    }
+
+    input[type="number"],
+    select {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid #d97706;
+      padding: 6px 11px;
+      font-size: 12px;
+      background: #fef9c3;
+      color: #111827;
+      outline: none;
+      font-family: var(--body-font);
+      transition: border 0.16s ease, box-shadow 0.16s ease, background 0.16s ease,
+        transform 0.1s ease;
+    }
+
+    input[type="number"]:focus,
+    select:focus {
+      border-color: var(--accent-red);
+      background: #fff7ed;
+      box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.55);
+      transform: translateY(-1px);
+    }
+
+    body.theme-neon input[type="number"],
+    body.theme-neon select,
+    body.theme-continental input[type="number"],
+    body.theme-continental select,
+    body.theme-samurai input[type="number"],
+    body.theme-samurai select {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(55, 65, 81, 0.9);
+      color: #e5e7eb;
+    }
+
+    body.theme-neon input[type="number"]:focus,
+    body.theme-neon select:focus,
+    body.theme-continental input[type="number"]:focus,
+    body.theme-continental select:focus {
+      border-color: var(--accent-emerald);
+      box-shadow:
+        0 0 0 1px rgba(45, 212, 191, 0.7),
+        0 0 18px rgba(56, 189, 248, 0.7);
+      background: #020617;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    .unit-pill {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 4px 8px;
+      border: 1px dashed #92400e;
+      background: #fef3c7;
+      color: #7c2d12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    body.theme-neon .unit-pill,
+    body.theme-continental .unit-pill,
+    body.theme-samurai .unit-pill {
+      border-style: solid;
+      border-color: rgba(75, 85, 99, 0.9);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-muted);
+    }
+
+    .divider {
+      height: 1px;
+      margin: 9px 0 7px;
+      background: linear-gradient(to right, transparent, #9ca3af, transparent);
+      opacity: 0.6;
+    }
+
+    .actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .btn-primary {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 17px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      background: radial-gradient(circle at top, #facc15, #b91c1c);
+      color: #111827;
+      box-shadow: 0 10px 24px rgba(148, 27, 19, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+      font-family: var(--jp-font);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 14px 30px rgba(148, 27, 19, 0.7);
+    }
+
+    body.theme-neon .btn-primary,
+    body.theme-continental .btn-primary {
+      background: radial-gradient(circle at top, var(--accent-emerald), var(--accent-blue));
+      color: #020617;
+      box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.95),
+        0 0 26px rgba(56, 189, 248, 0.9);
+      font-family: "Rajdhani", system-ui;
+    }
+
+    body.theme-neon .btn-primary:hover,
+    body.theme-continental .btn-primary:hover {
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 1),
+        0 0 32px rgba(59, 130, 246, 1);
+    }
+
+    .btn-primary span.icon {
+      font-size: 15px;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 11px;
+      cursor: pointer;
+      border: 1px dashed #6b7280;
+      background: #f9fafb;
+      color: #4b5563;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.12s ease, background 0.12s ease;
+      font-family: "Poppins", system-ui;
+    }
+
+    .btn-secondary::before {
+      content: "🧹";
+    }
+
+    body.theme-neon .btn-secondary,
+    body.theme-continental .btn-secondary {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      border-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      background: #e5e7eb;
+    }
+
+    body.theme-neon .btn-secondary:hover,
+    body.theme-continental .btn-secondary:hover {
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .tip-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      max-width: 300px;
+    }
+
+    /* RIGHT PANEL – Results */
+
+    .results-wrapper {
+      background: var(--paper);
+      border-radius: 18px;
+      border: 3px solid var(--paper-edge);
+      padding: 10px 12px 12px;
+      box-shadow:
+        0 10px 24px rgba(120, 53, 15, 0.7),
+        inset 0 0 10px rgba(251, 191, 36, 0.9);
+      position: relative;
+      overflow: hidden;
+      color: var(--text-main);
+    }
+
+    body.theme-neon .results-wrapper,
+    body.theme-continental .results-wrapper,
+    body.theme-samurai .results-wrapper {
+      background: var(--paper);
+      border-color: var(--result-border);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.95),
+        0 0 28px rgba(56, 189, 248, 0.4);
+      color: #e5e7eb;
+    }
+
+    .results-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .results-title {
+      font-family: var(--title-font);
+      font-size: 15px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #7c2d12;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .results-title::before {
+      content: "📜";
+      font-size: 16px;
+    }
+
+    body.theme-continental .results-title,
+    body.theme-neon .results-title {
+      color: #e5e7eb;
+    }
+
+    .status-chip {
+      font-size: 10px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--paper-edge);
+      background: #fef9c3;
+      color: #7c2d12;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      white-space: nowrap;
+    }
+
+    body.theme-neon .status-chip,
+    body.theme-continental .status-chip {
+      background: radial-gradient(circle at top, rgba(30, 64, 175, 0.7), rgba(15, 23, 42, 0.9));
+      border-color: rgba(129, 140, 248, 0.7);
+      color: rgba(191, 219, 254, 0.95);
+    }
+
+    .results-main-card {
+      margin-top: 4px;
+      background: #fef9c3;
+      border-radius: 14px;
+      border: 2px dashed #b45309;
+      padding: 10px 10px 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .results-main-card::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      bottom: -40%;
+      width: 40%;
+      left: -40%;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(248, 250, 252, 0.5),
+        transparent
+      );
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .results-main-card.scan::before {
+      animation: scanBar 0.8s ease-out;
+    }
+
+    @keyframes scanBar {
+      0% { opacity: 0.8; transform: translateX(0); }
+      100% { opacity: 0; transform: translateX(220%); }
+    }
+
+    body.theme-neon .results-main-card,
+    body.theme-continental .results-main-card,
+    body.theme-samurai .results-main-card {
+      background: var(--result-bg);
+      border-color: rgba(55, 65, 81, 0.9);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 800px) {
+      .results-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .big-number {
+      font-family: var(--title-font);
+      font-size: 30px;
+      font-weight: 700;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      color: #111827;
+    }
+
+    .big-number .unit {
+      font-size: 13px;
+      font-weight: 500;
+      color: #7c2d12;
+    }
+
+    body.theme-neon .big-number,
+    body.theme-continental .big-number,
+    body.theme-samurai .big-number {
+      color: #f9fafb;
+    }
+
+    body.theme-neon .big-number .unit,
+    body.theme-continental .big-number .unit {
+      color: rgba(191, 219, 254, 0.9);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: "Rajdhani", system-ui;
+    }
+
+    .result-caption {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      line-height: 1.6;
+    }
+
+    .score-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .score-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #fef3c7;
+      border: 1px solid #b45309;
+      color: #7c2d12;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .score-tag .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.5);
+    }
+
+    body.theme-neon .score-tag,
+    body.theme-continental .score-tag {
+      background: radial-gradient(circle at top, rgba(16, 185, 129, 0.28), rgba(15, 23, 42, 0.98));
+      border-color: rgba(52, 211, 153, 0.85);
+      color: #a7f3d0;
+    }
+
+    .score-context {
+      font-size: 10px;
+      color: #4b5563;
+    }
+
+    body.theme-neon .score-context,
+    body.theme-continental .score-context {
+      color: rgba(191, 219, 254, 0.9);
+    }
+
+    .progress-wrap {
+      margin-top: 4px;
+    }
+
+    .progress-label {
+      font-size: 11px;
+      color: #7c2d12;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .progress-label::before {
+      content: "📈";
+      font-size: 13px;
+    }
+
+    body.theme-neon .progress-label,
+    body.theme-continental .progress-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(191, 219, 254, 0.9);
+    }
+
+    body.theme-neon .progress-label::before,
+    body.theme-continental .progress-label::before {
+      content: "RANGE";
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 9px;
+      border-radius: 999px;
+      background: #fee2e2;
+      border: 1px solid #b91c1c;
+      overflow: hidden;
+    }
+
+    body.theme-neon .progress-track,
+    body.theme-continental .progress-track,
+    body.theme-samurai .progress-track {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(75, 85, 99, 0.9);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #22c55e, #facc15, #f97316, #ef4444);
+      transition: width 0.3s ease-out;
+      box-shadow: 0 0 16px rgba(52, 211, 153, 0.6);
+    }
+
+    .progress-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      color: #92400e;
+      margin-top: 2px;
+      opacity: 0.9;
+    }
+
+    body.theme-neon .progress-ticks,
+    body.theme-continental .progress-ticks,
+    body.theme-samurai .progress-ticks {
+      color: rgba(148, 163, 184, 0.95);
+    }
+
+    .breakdown-card {
+      margin-top: 10px;
+      border-radius: 14px;
+      border: 1px solid #b45309;
+      background: #fef9c3;
+      padding: 8px 9px;
+    }
+
+    body.theme-neon .breakdown-card,
+    body.theme-continental .breakdown-card,
+    body.theme-samurai .breakdown-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-color: rgba(55, 65, 81, 0.9);
+    }
+
+    .breakdown-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #7c2d12;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .breakdown-title::before {
+      content: "📊";
+      font-size: 13px;
+    }
+
+    body.theme-neon .breakdown-title,
+    body.theme-continental .breakdown-title {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(209, 213, 219, 0.98);
+    }
+
+    .breakdown-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .breakdown-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 11px;
+    }
+
+    .breakdown-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .breakdown-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #111827;
+    }
+
+    body.theme-neon .breakdown-label,
+    body.theme-continental .breakdown-label,
+    body.theme-samurai .breakdown-label {
+      color: #e5e7eb;
+    }
+
+    .breakdown-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .dot-transport { background: #2563eb; }
+    .dot-home { background: #f97316; }
+    .dot-diet { background: #22c55e; }
+    .dot-waste { background: #a855f7; }
+
+    .breakdown-value {
+      font-weight: 500;
+      color: #111827;
+    }
+
+    body.theme-neon .breakdown-value,
+    body.theme-continental .breakdown-value,
+    body.theme-samurai .breakdown-value {
+      color: #e5e7eb;
+    }
+
+    .breakdown-sub {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+    }
+
+    .mini-bar-track {
+      height: 4px;
+      border-radius: 999px;
+      background: #fee2e2;
+      overflow: hidden;
+    }
+
+    body.theme-neon .mini-bar-track,
+    body.theme-continental .mini-bar-track,
+    body.theme-samurai .mini-bar-track {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .mini-bar-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      transition: width 0.25s ease-out;
+    }
+
+    .mb-transport {
+      background: linear-gradient(90deg, #2563eb, #60a5fa);
+    }
+    .mb-home {
+      background: linear-gradient(90deg, #f97316, #fdba74);
+    }
+    .mb-diet {
+      background: linear-gradient(90deg, #16a34a, #bbf7d0);
+    }
+    .mb-waste {
+      background: linear-gradient(90deg, #a855f7, #e879f9);
+    }
+
+    .tips-card {
+      margin-top: 8px;
+      border-radius: 12px;
+      border: 1px dashed #9ca3af;
+      background: #f9fafb;
+      padding: 7px 8px;
+      display: flex;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    body.theme-neon .tips-card,
+    body.theme-continental .tips-card,
+    body.theme-samurai .tips-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.8);
+    }
+
+    .tips-icon {
+      font-size: 13px;
+    }
+
+    .tips-strong {
+      font-weight: 600;
+      color: #7c2d12;
+    }
+
+    body.theme-neon .tips-strong,
+    body.theme-continental .tips-strong {
+      color: #e5e7eb;
+    }
+
+    .footer-note {
+      margin-top: 8px;
+      font-size: 10px;
+      color: var(--text-muted);
+      text-align: right;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body class="font-default">
+  <div class="sea-waves"></div>
+
+  <main class="app-shell">
+    <div class="app-shell-inner">
+      <!-- HEADER -->
+      <header class="app-header">
+        <div class="title-block">
+          <div class="badge-row">
+            <div class="pill-badge" id="badgeMain">
+              <span class="pill-dot"></span>
+              EcoTrack · Personal Carbon Dashboard
+            </div>
+            <div class="pill-badge" id="badgeSecondary">
+              No login · Runs in browser · Rough estimate only
+            </div>
+          </div>
+
+          <div class="app-title">
+            <div class="app-title-main" id="appTitleMain">CARBON FOOTPRINT</div>
+            <div class="app-title-tagline" id="appTitleTagline">MULTI-VERSE MODE</div>
+          </div>
+
+          <p class="app-subtitle" id="appSubtitle">
+            One calculator, multiple worlds: anime scrolls, neon tech, samurai, sunny seas
+            or Continental-style noir. Enter your lifestyle once, switch themes freely,
+            and see how your yearly CO₂e “power level” breaks down.
+          </p>
+        </div>
+
+        <div class="header-controls">
+          <div class="unit-toggle">
+            <button id="metricBtn" class="unit-btn active" type="button">Metric</button>
+            <button id="imperialBtn" class="unit-btn" type="button">Imperial</button>
+          </div>
+          <p class="unit-note" id="unitNote">
+            Labels switch between km / miles & kg / lbs. Emission factors remain approximate
+            baseline values (you can swap them later with country-specific data).
+          </p>
+
+          <div class="theme-select-wrap">
+            <label for="themeSelector" class="theme-select-label" id="themeSelectLabel">
+              Visual theme
+            </label>
+            <select id="themeSelector" class="theme-select">
+              <option value="anime">Anime Scroll (Default)</option>
+              <option value="neon">Neon Tech Dashboard</option>
+              <option value="onepiece">One Piece Voyage</option>
+              <option value="bleach">Bleach · Soul Society</option>
+              <option value="samurai">Dark Samurai</option>
+              <option value="light">Light Minimal</option>
+              <option value="continental">Continental Noir (John Wick)</option>
+            </select>
+          </div>
+
+          <div class="language-font-row">
+            <div class="control-block">
+              <label for="languageSelector" class="theme-select-label" id="languageSelectLabel">
+                Language
+              </label>
+              <select id="languageSelector" class="theme-select">
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+              </select>
+            </div>
+            <div class="control-block">
+              <label for="fontSelector" class="theme-select-label" id="fontSelectLabel">
+                Font style
+              </label>
+              <select id="fontSelector" class="theme-select">
+                <option value="default">Default</option>
+                <option value="anime">Anime / Scroll</option>
+                <option value="tech">Tech / Rajdhani</option>
+                <option value="serif">Serif / Mincho</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-title" id="heroTitle">
+              Scenario Log
+              <span class="badge" id="heroBadge">PROFILE · v1</span>
+            </div>
+            <p class="hero-body" id="heroBody">
+              Think of this like a character stats page for your real life. Vehicles, energy,
+              food, gadgets — everything adds to your “world impact”. The goal isn’t perfection,
+              it’s spotting which bar you can push down first.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <section class="layout">
+        <!-- LEFT: INPUTS -->
+        <section class="panel" aria-label="Lifestyle inputs">
+          <div class="panel-inner">
+            <div class="panel-header">
+              <div class="panel-title-block">
+                <div class="panel-title-main" id="panelTitleMain">LIFESTYLE INPUTS</div>
+                <div class="panel-subtitle" id="panelSubtitle">
+                  Rough numbers are fine. Use this more like a simulator than a precise government report.
+                </div>
+              </div>
+              <span class="panel-chip" id="panelChip">SETUP · ~1 MIN</span>
+            </div>
+
+            <div class="sections-grid">
+              <!-- Transport -->
+              <div>
+                <div class="scroll-card">
+                  <div class="scroll-header">
+                    <div class="scroll-title" id="transportTitle">
+                      <span class="jp">移動</span>
+                      Transport
+                    </div>
+                    <div class="scroll-tag" id="transportTag">Weekly + yearly</div>
+                  </div>
+                  <div class="field-group">
+                    <div class="field">
+                      <div class="field-label-row">
+                        <span class="field-label" id="labelPrivateVehicle">Private vehicle distance</span>
+                        <span class="field-hint" id="hintPrivateVehicle">Car / bike / scooter / taxi</span>
+                      </div>
+                      <div class="field-inline">
+                        <input type="number" id="weeklyCarKm" min="0" placeholder="e.g. 120" />
+                        <div class="unit-pill" id="carKmUnitLabel">km / week</div>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <div class="field-label-row">
+                        <span class="field-label" id="labelPublicTransport">Public transport distance</span>
+                        <span class="field-hint" id="hintPublicTransport">Bus, metro, local trains</span>
+                      </div>
+                      <div class="field-inline">
+                        <input type="number" id="weeklyPublicKm" min="0" placeholder="e.g. 40" />
+                        <div class="unit-pill" id="publicKmUnitLabel">km / week</div>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <div class="field-label-row">
+                        <span class="field-label" id="labelFlights">Flights per year</span>
+                        <span class="field-hint" id="hintFlights">Short vs long haul count</span>
+                      </div>
+                      <div class="field-inline">
+                        <input type="number" id="flightsShort" min="0" placeholder="Short-haul" />
+                        <input type="number" id="flightsLong" min="0" placeholder="Long-haul" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Home -->
+              <div>
+                <div class="scroll-card">
+                  <div class="scroll-header">
+                    <div class="scroll-title" id="homeTitle">
+                      <span class="jp">家</span>
+                      Home energy
+                    </div>
+                    <div class="scroll-tag" id="homeTag">Monthly average</div>
+                  </div>
+                  <div class="field-group">
+                    <div class="field">
+                      <div class="field-label-row">
+                        <span class="field-label" id="labelElectricity">Electricity usage</span>
+                        <span class="field-hint" id="hintElectricity">From bill if possible</span>
+                      </div>
+                      <div class="field-inline">
+                        <input type="number" id="electricityKwh" min="0" placeholder="e.g. 180" />
+                        <div class="unit-pill">kWh / month</div>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <div class="field-label-row">
+                        <span class="field-label" id="labelGas">Cooking gas / heating</span>
+                        <span class="field-hint" id="hintGas">LPG cylinder or similar</span>
+                      </div>
+                      <div class="field-inline">
+                        <input type="number" id="gasUse" min="0" placeholder="e.g. 1" />
+                        <div class="unit-pill" id="gasUnitLabel">LPG cylinder / month</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Diet -->
+              <div>
+                <div class="scroll-card">
+                  <div class="scroll-header">
+                    <div class="scroll-title" id="dietTitle">
+                      <span class="jp">食</span>
+                      Diet & food
+                    </div>
+                    <div class="scroll-tag" id="dietTag">Typical pattern</div>
+                  </div>
+                  <div class="field-group">
+                    <div class="field">
+                      <div class="field-label-row">
+                        <span class="field-label" id="labelDietType">Diet type</span>
+                        <span class="field-hint" id="hintDietType">Average over the year</span>
+                      </div>
+                      <select id="dietType">
+                        <option value="heavy_meat">High meat (most meals)</option>
+                        <option value="average_meat" selected>Mixed (some meat / week)</option>
+                        <option value="vegetarian">Vegetarian (eggs/dairy ok)</option>
+                        <option value="vegan">Vegan / plant-based</option>
+                      </select>
+                    </div>
+
+                    <div class="field">
+                      <div class="field-label-row">
+                        <span class="field-label" id="labelMealsOut">Eating out / delivery</span>
+                        <span class="field-hint" id="hintMealsOut">Meals per week</span>
+                      </div>
+                      <div class="field-inline">
+                        <input type="number" id="mealsOut" min="0" placeholder="e.g. 3" />
+                        <div class="unit-pill">meals / week</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Waste & stuff -->
+              <div>
+                <div class="scroll-card">
+                  <div class="scroll-header">
+                    <div class="scroll-title" id="wasteTitle">
+                      <span class="jp">物</span>
+                      Waste & stuff
+                    </div>
+                    <div class="scroll-tag" id="wasteTag">Weekly + yearly</div>
+                  </div>
+                  <div class="field-group">
+                    <div class="field">
+                      <div class="field-label-row">
+                        <span class="field-label" id="labelWaste">Household waste</span>
+                        <span class="field-hint" id="hintWaste">Before recycling / compost</span>
+                      </div>
+                      <div class="field-inline">
+                        <input type="number" id="wasteKg" min="0" placeholder="e.g. 10" />
+                        <div class="unit-pill" id="wasteUnitLabel">kg / week</div>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <div class="field-label-row">
+                        <span class="field-label" id="labelShopping">Shopping intensity</span>
+                        <span class="field-hint" id="hintShopping">Clothes, gadgets etc.</span>
+                      </div>
+                      <select id="shoppingHabit">
+                        <option value="low">Low – rarely buy new</option>
+                        <option value="average" selected>Average</option>
+                        <option value="high">High – frequent new items</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="actions-row">
+              <button class="btn-primary" id="calculateBtn" type="button">
+                <span class="icon">◎</span>
+                <span id="calculateBtnLabel">Calculate / update</span>
+              </button>
+              <button class="btn-secondary" id="resetBtn" type="button">
+                <span id="resetBtnLabel">Reset all fields</span>
+              </button>
+              <p class="tip-text" id="inputTip">
+                You can treat this as a “what-if” tool. Change one habit at a time — like using
+                more public transport — and see how the total and breakdown shift.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT: RESULTS -->
+        <section class="panel" aria-label="Results poster / ledger">
+          <div class="results-wrapper">
+            <div class="results-header-row">
+              <div class="results-title" id="resultsTitle">
+                ANNUAL FOOTPRINT
+              </div>
+              <span class="status-chip" id="resultStatusChip">Waiting for inputs…</span>
+            </div>
+
+            <div class="results-main-card" id="resultsCard">
+              <div class="results-grid">
+                <div>
+                  <div class="big-number">
+                    <span id="totalFootprint">0.0</span>
+                    <span class="unit" id="totalUnitLabel">tonnes CO₂e / year</span>
+                  </div>
+                  <p class="result-caption" id="resultCaption">
+                    Enter your routine on the left and hit “Calculate”. You’ll get a rough
+                    yearly footprint — useful for comparing scenarios, not as an official audit.
+                  </p>
+
+                  <div class="score-tag-row" id="scoreTagRow" style="display:none;">
+                    <span class="score-tag" id="scoreTag">
+                      <span class="dot"></span>
+                      <span id="scoreTagLabel">Status</span>
+                    </span>
+                    <span class="score-context" id="scoreContext">
+                      Interpretation appears after calculation.
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="progress-wrap">
+                    <div class="progress-label" id="progressLabel">
+                      Relative position (very approximate)
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-ticks">
+                      <span id="tickLow">Lower</span>
+                      <span id="tickMid">Typical range</span>
+                      <span id="tickHigh">Higher</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="breakdown-card">
+              <div class="breakdown-title" id="breakdownTitle">Category breakdown</div>
+              <ul class="breakdown-list">
+                <li class="breakdown-item">
+                  <div class="breakdown-row-top">
+                    <div class="breakdown-label">
+                      <span class="breakdown-dot dot-transport"></span>
+                      <span id="breakdownTransportLabel">Transport</span>
+                    </div>
+                    <span class="breakdown-value" id="transportValue">0.0 t</span>
+                  </div>
+                  <div class="breakdown-sub">
+                    <span id="transportPercent">0%</span>
+                    <span id="transportSub">Private vehicles, public transport & flights</span>
+                  </div>
+                  <div class="mini-bar-track">
+                    <div class="mini-bar-fill mb-transport" id="transportBar"></div>
+                  </div>
+                </li>
+
+                <li class="breakdown-item">
+                  <div class="breakdown-row-top">
+                    <div class="breakdown-label">
+                      <span class="breakdown-dot dot-home"></span>
+                      <span id="breakdownHomeLabel">Home energy</span>
+                    </div>
+                    <span class="breakdown-value" id="homeValue">0.0 t</span>
+                  </div>
+                  <div class="breakdown-sub">
+                    <span id="homePercent">0%</span>
+                    <span id="homeSub">Electricity, gas / heating</span>
+                  </div>
+                  <div class="mini-bar-track">
+                    <div class="mini-bar-fill mb-home" id="homeBar"></div>
+                  </div>
+                </li>
+
+                <li class="breakdown-item">
+                  <div class="breakdown-row-top">
+                    <div class="breakdown-label">
+                      <span class="breakdown-dot dot-diet"></span>
+                      <span id="breakdownDietLabel">Diet & food</span>
+                    </div>
+                    <span class="breakdown-value" id="dietValue">0.0 t</span>
+                  </div>
+                  <div class="breakdown-sub">
+                    <span id="dietPercent">0%</span>
+                    <span id="dietSub">Food pattern & eating out</span>
+                  </div>
+                  <div class="mini-bar-track">
+                    <div class="mini-bar-fill mb-diet" id="dietBar"></div>
+                  </div>
+                </li>
+
+                <li class="breakdown-item">
+                  <div class="breakdown-row-top">
+                    <div class="breakdown-label">
+                      <span class="breakdown-dot dot-waste"></span>
+                      <span id="breakdownWasteLabel">Waste & stuff</span>
+                    </div>
+                    <span class="breakdown-value" id="wasteValue">0.0 t</span>
+                  </div>
+                  <div class="breakdown-sub">
+                    <span id="wastePercent">0%</span>
+                    <span id="wasteSub">Waste, shopping & material use</span>
+                  </div>
+                  <div class="mini-bar-track">
+                    <div class="mini-bar-fill mb-waste" id="wasteBar"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tips-card" id="tipsCard">
+              <div class="tips-icon">💡</div>
+              <div>
+                <span class="tips-strong" id="tipsStrong">How to use this:</span>
+                <span id="tipsBody">
+                  after you calculate, look for the tallest bar above. That’s usually the
+                  smartest first target if you want to quietly push your footprint down.
+                </span>
+              </div>
+            </div>
+
+            <div class="footer-note" id="footerNote">
+              One calculator · many themes · numbers are approximate, best for comparison between scenarios.
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // Rough emission factors (kg CO₂e per unit)
+    const factorsMetric = {
+      carPerKm: 0.18,
+      publicPerKm: 0.06,
+      flightShort: 200,
+      flightLong: 900,
+      electricityPerKwh: 0.7,
+      gasPerUnit: 42,
+      wastePerKg: 0.5,
+    };
+
+    const factorsDietYearlyTonnes = {
+      heavy_meat: 3.5,
+      average_meat: 2.4,
+      vegetarian: 1.7,
+      vegan: 1.4,
+    };
+
+    const shoppingTonnes = {
+      low: 0.3,
+      average: 0.7,
+      high: 1.3,
+    };
+
+    let useMetric = true;
+    let currentLanguage = "en";
+    let lastResults = { total: 0, transport: 0, home: 0, diet: 0, waste: 0 };
+
+    const $ = (id) => document.getElementById(id);
+
+    // Static text for language switch
+    const staticText = {
+      en: {
+        badgeMain: "EcoTrack · Personal Carbon Dashboard",
+        badgeSecondary: "No login · Runs in browser · Rough estimate only",
+        appTitleMain: "CARBON FOOTPRINT",
+        appTitleTagline: "MULTI-VERSE MODE",
+        appSubtitle:
+          "One calculator, multiple worlds: anime scrolls, neon tech, samurai, sunny seas or Continental-style noir. Enter your lifestyle once, switch themes freely, and see how your yearly CO₂e “power level” breaks down.",
+        unitNote:
+          "Labels switch between km / miles & kg / lbs. Emission factors remain approximate baseline values (you can swap them later with country-specific data).",
+        themeSelectLabel: "Visual theme",
+        languageSelectLabel: "Language",
+        fontSelectLabel: "Font style",
+        heroTitle: "Scenario Log",
+        heroBadge: "PROFILE · v1",
+        heroBody:
+          "Think of this like a character stats page for your real life. Vehicles, energy, food, gadgets — everything adds to your “world impact”. The goal isn’t perfection, it’s spotting which bar you can push down first.",
+        panelTitleMain: "LIFESTYLE INPUTS",
+        panelSubtitle:
+          "Rough numbers are fine. Use this more like a simulator than a precise government report.",
+        panelChip: "SETUP · ~1 MIN",
+        transportTitle: "Transport",
+        transportTag: "Weekly + yearly",
+        homeTitle: "Home energy",
+        homeTag: "Monthly average",
+        dietTitle: "Diet & food",
+        dietTag: "Typical pattern",
+        wasteTitle: "Waste & stuff",
+        wasteTag: "Weekly + yearly",
+        labelPrivateVehicle: "Private vehicle distance",
+        hintPrivateVehicle: "Car / bike / scooter / taxi",
+        labelPublicTransport: "Public transport distance",
+        hintPublicTransport: "Bus, metro, local trains",
+        labelFlights: "Flights per year",
+        hintFlights: "Short vs long haul count",
+        labelElectricity: "Electricity usage",
+        hintElectricity: "From bill if possible",
+        labelGas: "Cooking gas / heating",
+        hintGas: "LPG cylinder or similar",
+        labelDietType: "Diet type",
+        hintDietType: "Average over the year",
+        labelMealsOut: "Eating out / delivery",
+        hintMealsOut: "Meals per week",
+        labelWaste: "Household waste",
+        hintWaste: "Before recycling / compost",
+        labelShopping: "Shopping intensity",
+        hintShopping: "Clothes, gadgets etc.",
+        calculateBtnLabel: "Calculate / update",
+        resetBtnLabel: "Reset all fields",
+        inputTip:
+          "You can treat this as a “what-if” tool. Change one habit at a time — like using more public transport — and see how the total and breakdown shift.",
+        resultsTitle: "ANNUAL FOOTPRINT",
+        totalUnitLabel: "tonnes CO₂e / year",
+        progressLabel: "Relative position (very approximate)",
+        tickLow: "Lower",
+        tickMid: "Typical range",
+        tickHigh: "Higher",
+        breakdownTitle: "Category breakdown",
+        breakdownTransportLabel: "Transport",
+        transportSub: "Private vehicles, public transport & flights",
+        breakdownHomeLabel: "Home energy",
+        homeSub: "Electricity, gas / heating",
+        breakdownDietLabel: "Diet & food",
+        dietSub: "Food pattern & eating out",
+        breakdownWasteLabel: "Waste & stuff",
+        wasteSub: "Waste, shopping & material use",
+        tipsStrong: "How to use this:",
+        tipsBody:
+          "after you calculate, look for the tallest bar above. That’s usually the smartest first target if you want to quietly push your footprint down.",
+        footerNote:
+          "One calculator · many themes · numbers are approximate, best for comparison between scenarios.",
+      },
+      hi: {
+        badgeMain: "EcoTrack · पर्सनल कार्बन डैशबोर्ड",
+        badgeSecondary: "कोई लॉगिन नहीं · ब्राउज़र में चलता है · सिर्फ अनुमान",
+        appTitleMain: "कार्बन फुटप्रिंट",
+        appTitleTagline: "मल्टी-वर्स मोड",
+        appSubtitle:
+          "एक ही कैलकुलेटर, कई दुनिया: ऐनिमे स्क्रोल, निऑन टेक, समुराई, समुद्र वाला दिन या कॉन्टिनेंटल नॉयर। बस अपनी लाइफ़स्टाइल डालो, थीम बदलो, और सालाना CO₂e “पावर लेवल” देखो।",
+        unitNote:
+          "यह सिर्फ यूनिट के लेबल बदलता है (km ↔ miles, kg ↔ lbs)। एमिशन फैक्टर अभी लगभग वाले बेस वैल्यू हैं, जिन्हें बाद में देश के हिसाब से बदला जा सकता है।",
+        themeSelectLabel: "विज़ुअल थीम",
+        languageSelectLabel: "भाषा",
+        fontSelectLabel: "फ़ॉन्ट स्टाइल",
+        heroTitle: "सिनेरियो लॉग",
+        heroBadge: "प्रोफ़ाइल · v1",
+        heroBody:
+          "इसे अपनी असली जिंदगी का कैरेक्टर स्टैट्स पेज समझो। गाड़ी, बिजली, खाना, गैजेट्स — सब मिलकर तुम्हारा “वर्ल्ड इम्पैक्ट” बनाते हैं। गोल परफ़ेक्ट बनना नहीं, सबसे बड़ा बार कम करना है।",
+        panelTitleMain: "लाइफ़स्टाइल इनपुट",
+        panelSubtitle:
+          "बस लगभग वैल्यू डालो। इसे सिम्युलेटर की तरह यूज़ करो, किसी सरकारी रिपोर्ट की तरह नहीं।",
+        panelChip: "सेटअप · ~1 मिनट",
+        transportTitle: "Transport / यात्रा",
+        transportTag: "हफ़्ते + सालाना",
+        homeTitle: "घर की ऊर्जा",
+        homeTag: "महीने का औसत",
+        dietTitle: "डाइट और खाना",
+        dietTag: "टिपिकल पैटर्न",
+        wasteTitle: "कूड़ा और चीज़ें",
+        wasteTag: "हफ़्ते + सालाना",
+        labelPrivateVehicle: "प्राइवेट गाड़ी से दूरी",
+        hintPrivateVehicle: "कार / बाइक / स्कूटर / टैक्सी",
+        labelPublicTransport: "पब्लिक ट्रांसपोर्ट दूरी",
+        hintPublicTransport: "बस, मेट्रो, लोकल ट्रेन",
+        labelFlights: "साल में फ्लाइट्स",
+        hintFlights: "शॉर्ट और लॉन्ग हॉल गिनती",
+        labelElectricity: "बिजली की खपत",
+        hintElectricity: "संभव हो तो बिल से",
+        labelGas: "कुकिंग गैस / हीटिंग",
+        hintGas: "जैसे LPG सिलिंडर",
+        labelDietType: "डाइट टाइप",
+        hintDietType: "पूरा साल औसत के हिसाब से",
+        labelMealsOut: "बाहर खाना / डिलीवरी",
+        hintMealsOut: "हफ़्ते में कितनी बार",
+        labelWaste: "घर का कूड़ा",
+        hintWaste: "रीसाइक्लिंग / कम्पोस्ट से पहले",
+        labelShopping: "शॉपिंग इंटेंसिटी",
+        hintShopping: "कपड़े, गैजेट्स वगैरह",
+        calculateBtnLabel: "कैलकुलेट / अपडेट",
+        resetBtnLabel: "सारे फ़ील्ड साफ़ करें",
+        inputTip:
+          "इसे 'क्या हो अगर' वाले टूल की तरह यूज़ करो। एक बार में बस एक आदत बदलो — जैसे ज़्यादा पब्लिक ट्रांसपोर्ट — और देखो टोटल और चार्ट कैसे बदलते हैं।",
+        resultsTitle: "वार्षिक फुटप्रिंट",
+        totalUnitLabel: "टन CO₂e / साल",
+        progressLabel: "रिलेटिव पोज़िशन (लगभग अंदाज़ा)",
+        tickLow: "कम",
+        tickMid: "औसत रेंज",
+        tickHigh: "ज़्यादा",
+        breakdownTitle: "कैटेगरी ब्रेकडाउन",
+        breakdownTransportLabel: "Transport / यात्रा",
+        transportSub: "प्राइवेट गाड़ी, पब्लिक ट्रांसपोर्ट और फ्लाइट्स",
+        breakdownHomeLabel: "घर की ऊर्जा",
+        homeSub: "बिजली, गैस / हीटिंग",
+        breakdownDietLabel: "डाइट और खाना",
+        dietSub: "खाने का पैटर्न और बाहर खाना",
+        breakdownWasteLabel: "कूड़ा और चीज़ें",
+        wasteSub: "कूड़ा, शॉपिंग और मैटेरियल यूज़",
+        tipsStrong: "इसे कैसे यूज़ करें:",
+        tipsBody:
+          "कैलकुलेट के बाद जो बार सबसे ऊँचा है, पहले उसी पर काम करो। अक्सर वहीं से सबसे आसान और ज़्यादा फर्क पड़ता है।",
+        footerNote:
+          "एक कैलकुलेटर · कई थीम · वैल्यूज़ लगभग हैं, अलग-अलग सिनेरियो कंपेयर करने के लिए बेस्ट।",
+      },
+    };
+
+    // Dynamic language texts (captions, statuses, tips)
+    const uiLang = {
+      en: {
+        statusWaiting: "Waiting for inputs…",
+        statusReady: "Estimate ready",
+        captionEmpty:
+          "Enter some values on the left and hit “Calculate” to see an estimate of your yearly footprint.",
+        captionFilled:
+          "Use this value to compare different lifestyle versions — like changing commute, diet or energy use. It’s not a precise audit, just a guide.",
+        score: {
+          lowLabel: "Lower than indicative average",
+          lowContext:
+            "You appear on the lower side. You can still squeeze improvements from the category that dominates your breakdown.",
+          midLabel: "Within a broad typical band",
+          midContext:
+            "Your footprint sits in a mid-range zone. The category with the highest percentage is your best first lever.",
+          highLabel: "Higher than indicative average",
+          highContext:
+            "You seem above a rough average range. Transport and home energy are often the easiest places to make noticeable cuts.",
+        },
+        tipsEmptyStrong: "First step:",
+        tipsEmptyBody:
+          "Put in honest, rough numbers. Once the chart fills, the tallest bar will show you where one or two changes can have the biggest effect.",
+        tipsBiggest: {
+          "Transport":
+            "Try combining trips, swapping some car journeys for public transport or car-sharing, and walking or cycling short distances when it’s realistic.",
+          "Home energy":
+            "Look at cooling / heating hours, appliance efficiency and habits like leaving things on standby. Small changes here stack up over the whole year.",
+          "Diet & food":
+            "Reducing red meat frequency, avoiding food waste and cooking more at home with seasonal ingredients can push this bar down steadily.",
+          "Waste & stuff":
+            "Buy fewer but better items, repair or reuse where possible and improve segregation / recycling so less ends up as mixed waste.",
+        },
+      },
+      hi: {
+        statusWaiting: "इनपुट का इंतज़ार…",
+        statusReady: "अनुमान तैयार",
+        captionEmpty:
+          "बाएँ तरफ कुछ वैल्यू डालकर “कैलकुलेट” दबाएँ। आपको साल भर के कार्बन फुटप्रिंट का एक अनुमान दिखेगा।",
+        captionFilled:
+          "इस वैल्यू को अलग-अलग लाइफ़स्टाइल वर्ज़न कंपेयर करने के लिए यूज़ करें — जैसे कम्यूट, डाइट या एनर्जी यूज़ बदलना। यह कोई ऑफिशियल ऑडिट नहीं, सिर्फ़ गाइड है।",
+        score: {
+          lowLabel: "औसत से कम",
+          lowContext:
+            "आपका फुटप्रिंट कम साइड पर दिख रहा है। फिर भी जिस कैटेगरी का हिस्सा सबसे ज़्यादा है, वही आगे सुधार का सबसे अच्छा मौका है।",
+          midLabel: "क़रीब-क़रीब औसत रेंज",
+          midContext:
+            "आप मिड-रेंज ज़ोन में हैं। जिस कैटेगरी का प्रतिशत सबसे ज़्यादा है, पहले उसी को टारगेट करना सबसे स्मार्ट रहेगा।",
+          highLabel: "औसत से ज़्यादा",
+          highContext:
+            "आपका फुटप्रिंट मोटे तौर पर औसत से ऊपर दिख रहा है। ट्रैवल और घर की ऊर्जा आमतौर पर सबसे आसान जगह होती हैं जहाँ से बड़ा फर्क लाया जा सकता है।",
+        },
+        tipsEmptyStrong: "पहला स्टेप:",
+        tipsEmptyBody:
+          "ईमानदारी से लगभग वैल्यू भरें। जब चार्ट भर जाएगा तो जो बार सबसे ऊँचा होगा, वहीं से 1–2 बदलाव करके सबसे ज़्यादा असर दिख सकता है।",
+        tipsBiggest: {
+          "Transport":
+            "ट्रिप्स को कंबाइन करें, कुछ कार जर्नी को पब्लिक ट्रांसपोर्ट या कार-शेयर से बदलें, और जहाँ पॉसिबल हो वहाँ छोटी दूरी पैदल या साइकिल से जाएँ।",
+          "Home energy":
+            "कूलिंग / हीटिंग टाइम, पुराने उपकरण और स्टैंडबाय पर रहने वाली चीज़ें देखें। यहाँ छोटी-छोटी आदतें भी साल भर में बड़ा फर्क बना देती हैं।",
+          "Diet & food":
+            "रेड मीट कम बार लें, फूड वेस्ट कम करें और सीज़नल चीज़ों के साथ घर पर ज़्यादा कुकिंग करें — ये बार धीरे-धीरे नीचे आएगा।",
+          "Waste & stuff":
+            "कम लेकिन बेहतर क्वालिटी की चीज़ें खरीदें, रिपेयर / री-यूज़ की कोशिश करें और कचरे की सेग्रिगेशन सुधारें ताकि कम चीज़ें मिक्स वेस्ट में जाएँ।",
+        },
+      },
+    };
+
+    // Unit toggle
+    const metricBtn = $("metricBtn");
+    const imperialBtn = $("imperialBtn");
+
+    function switchToMetric() {
+      useMetric = true;
+      metricBtn.classList.add("active");
+      imperialBtn.classList.remove("active");
+      $("carKmUnitLabel").textContent = "km / week";
+      $("publicKmUnitLabel").textContent = "km / week";
+      $("wasteUnitLabel").textContent = "kg / week";
+      $("gasUnitLabel").textContent = "LPG cylinder / month";
+    }
+
+    function switchToImperial() {
+      useMetric = false;
+      imperialBtn.classList.add("active");
+      metricBtn.classList.remove("active");
+      $("carKmUnitLabel").textContent = "miles / week";
+      $("publicKmUnitLabel").textContent = "miles / week";
+      $("wasteUnitLabel").textContent = "lbs / week (approx.)";
+      $("gasUnitLabel").textContent = "propane equivalent / month";
+    }
+
+    metricBtn.addEventListener("click", switchToMetric);
+    imperialBtn.addEventListener("click", switchToImperial);
+
+    // Theme switcher
+    const themeSelector = $("themeSelector");
+    function applyTheme(theme) {
+      document.body.classList.remove(
+        "theme-neon",
+        "theme-onepiece",
+        "theme-bleach",
+        "theme-samurai",
+        "theme-light",
+        "theme-continental"
+      );
+      if (theme === "neon") document.body.classList.add("theme-neon");
+      if (theme === "onepiece") document.body.classList.add("theme-onepiece");
+      if (theme === "bleach") document.body.classList.add("theme-bleach");
+      if (theme === "samurai") document.body.classList.add("theme-samurai");
+      if (theme === "light") document.body.classList.add("theme-light");
+      if (theme === "continental") document.body.classList.add("theme-continental");
+    }
+    themeSelector.addEventListener("change", () => applyTheme(themeSelector.value));
+
+    // Font switcher
+    const fontSelector = $("fontSelector");
+    function applyFont(fontKey) {
+      document.body.classList.remove("font-default", "font-anime", "font-tech", "font-serif");
+      document.body.classList.add("font-" + fontKey);
+    }
+    fontSelector.addEventListener("change", () => applyFont(fontSelector.value));
+
+    // Language switcher
+    const languageSelector = $("languageSelector");
+
+    function applyStaticLanguage(lang) {
+      const t = staticText[lang];
+      $("badgeMain").textContent = t.badgeMain;
+      $("badgeSecondary").textContent = t.badgeSecondary;
+      $("appTitleMain").textContent = t.appTitleMain;
+      $("appTitleTagline").textContent = t.appTitleTagline;
+      $("appSubtitle").textContent = t.appSubtitle;
+      $("unitNote").textContent = t.unitNote;
+      $("themeSelectLabel").textContent = t.themeSelectLabel;
+      $("languageSelectLabel").textContent = t.languageSelectLabel;
+      $("fontSelectLabel").textContent = t.fontSelectLabel;
+      $("heroTitle").childNodes[0].nodeValue = t.heroTitle + " ";
+      $("heroBadge").textContent = t.heroBadge;
+      $("heroBody").textContent = t.heroBody;
+      $("panelTitleMain").textContent = t.panelTitleMain;
+      $("panelSubtitle").textContent = t.panelSubtitle;
+      $("panelChip").textContent = t.panelChip;
+
+      $("transportTitle").childNodes[1].nodeValue = " " + t.transportTitle;
+      $("transportTag").textContent = t.transportTag;
+      $("homeTitle").childNodes[1].nodeValue = " " + t.homeTitle;
+      $("homeTag").textContent = t.homeTag;
+      $("dietTitle").childNodes[1].nodeValue = " " + t.dietTitle;
+      $("dietTag").textContent = t.dietTag;
+      $("wasteTitle").childNodes[1].nodeValue = " " + t.wasteTitle;
+      $("wasteTag").textContent = t.wasteTag;
+
+      $("labelPrivateVehicle").textContent = t.labelPrivateVehicle;
+      $("hintPrivateVehicle").textContent = t.hintPrivateVehicle;
+      $("labelPublicTransport").textContent = t.labelPublicTransport;
+      $("hintPublicTransport").textContent = t.hintPublicTransport;
+      $("labelFlights").textContent = t.labelFlights;
+      $("hintFlights").textContent = t.hintFlights;
+      $("labelElectricity").textContent = t.labelElectricity;
+      $("hintElectricity").textContent = t.hintElectricity;
+      $("labelGas").textContent = t.labelGas;
+      $("hintGas").textContent = t.hintGas;
+      $("labelDietType").textContent = t.labelDietType;
+      $("hintDietType").textContent = t.hintDietType;
+      $("labelMealsOut").textContent = t.labelMealsOut;
+      $("hintMealsOut").textContent = t.hintMealsOut;
+      $("labelWaste").textContent = t.labelWaste;
+      $("hintWaste").textContent = t.hintWaste;
+      $("labelShopping").textContent = t.labelShopping;
+      $("hintShopping").textContent = t.hintShopping;
+
+      $("calculateBtnLabel").textContent = t.calculateBtnLabel;
+      $("resetBtnLabel").textContent = t.resetBtnLabel;
+      $("inputTip").textContent = t.inputTip;
+
+      $("resultsTitle").textContent = t.resultsTitle;
+      $("totalUnitLabel").textContent = t.totalUnitLabel;
+      $("progressLabel").textContent = t.progressLabel;
+      $("tickLow").textContent = t.tickLow;
+      $("tickMid").textContent = t.tickMid;
+      $("tickHigh").textContent = t.tickHigh;
+
+      $("breakdownTitle").textContent = t.breakdownTitle;
+      $("breakdownTransportLabel").textContent = t.breakdownTransportLabel;
+      $("transportSub").textContent = t.transportSub;
+      $("breakdownHomeLabel").textContent = t.breakdownHomeLabel;
+      $("homeSub").textContent = t.homeSub;
+      $("breakdownDietLabel").textContent = t.breakdownDietLabel;
+      $("dietSub").textContent = t.dietSub;
+      $("breakdownWasteLabel").textContent = t.breakdownWasteLabel;
+      $("wasteSub").textContent = t.wasteSub;
+
+      $("tipsStrong").textContent = t.tipsStrong;
+      $("tipsBody").textContent = t.tipsBody;
+      $("footerNote").textContent = t.footerNote;
+    }
+
+    function applyLanguage(lang) {
+      currentLanguage = lang;
+      document.body.classList.remove("lang-en", "lang-hi");
+      document.body.classList.add(lang === "hi" ? "lang-hi" : "lang-en");
+      applyStaticLanguage(lang);
+      // Re-render dynamic texts (captions, tips, statuses) with same numeric values
+      updateResults(lastResults);
+    }
+
+    languageSelector.addEventListener("change", () => applyLanguage(languageSelector.value));
+
+    // Parsing
+    function parseNumber(id) {
+      const v = parseFloat($(id).value);
+      return isNaN(v) ? 0 : v;
+    }
+
+    // Scan animation
+    function triggerScanAnimation() {
+      const card = $("resultsCard");
+      card.classList.remove("scan");
+      void card.offsetWidth;
+      card.classList.add("scan");
+    }
+
+    // Calculation
+    function calculateFootprint() {
+      const f = factorsMetric;
+
+      // Transport
+      let weeklyCar = parseNumber("weeklyCarKm");
+      let weeklyPublic = parseNumber("weeklyPublicKm");
+      const flightsShort = parseNumber("flightsShort");
+      const flightsLong = parseNumber("flightsLong");
+
+      if (!useMetric) {
+        weeklyCar *= 1.609;   // miles -> km
+        weeklyPublic *= 1.609;
+      }
+
+      const transportKgPerYear =
+        (weeklyCar * f.carPerKm + weeklyPublic * f.publicPerKm) * 52 +
+        flightsShort * f.flightShort +
+        flightsLong * f.flightLong;
+      const transportTonnes = transportKgPerYear / 1000;
+
+      // Home
+      const electricityKwh = parseNumber("electricityKwh");
+      const gasUse = parseNumber("gasUse");
+      const homeKgPerYear =
+        electricityKwh * f.electricityPerKwh * 12 +
+        gasUse * f.gasPerUnit * 12;
+      const homeTonnes = homeKgPerYear / 1000;
+
+      // Diet
+      const dietType = $("dietType").value;
+      const baseDiet = factorsDietYearlyTonnes[dietType] || 2.4;
+      const mealsOut = parseNumber("mealsOut");
+      const extraMealsOutTonnes = (mealsOut * 0.6 * 52) / 1000;
+      const dietTonnes = baseDiet + extraMealsOutTonnes;
+
+      // Waste
+      let waste = parseNumber("wasteKg");
+      if (!useMetric) waste *= 0.453; // lbs -> kg
+      const shopping = $("shoppingHabit").value;
+      const wasteKgPerYear = waste * f.wastePerKg * 52;
+      const wasteTonnes =
+        wasteKgPerYear / 1000 + (shoppingTonnes[shopping] || 0.7);
+
+      const total = transportTonnes + homeTonnes + dietTonnes + wasteTonnes;
+
+      updateResults({
+        total,
+        transport: transportTonnes,
+        home: homeTonnes,
+        diet: dietTonnes,
+        waste: wasteTonnes,
+      });
+    }
+
+    function updateResults(values) {
+      const { total, transport, home, diet, waste } = values;
+      lastResults = values;
+
+      const langPack = uiLang[currentLanguage];
+
+      $("totalFootprint").textContent = total.toFixed(1);
+
+      const statusChip = $("resultStatusChip");
+
+      if (total <= 0) {
+        statusChip.textContent = langPack.statusWaiting;
+        $("resultCaption").textContent = langPack.captionEmpty;
+        $("scoreTagRow").style.display = "none";
+        $("progressFill").style.width = "0%";
+      } else {
+        statusChip.textContent = langPack.statusReady;
+        $("resultCaption").textContent = langPack.captionFilled;
+        $("scoreTagRow").style.display = "flex";
+        triggerScanAnimation();
+      }
+
+      const percent = (v) => (total > 0 ? Math.round((v / total) * 100) : 0);
+      const tP = percent(transport);
+      const hP = percent(home);
+      const dP = percent(diet);
+      const wP = percent(waste);
+
+      $("transportValue").textContent = transport.toFixed(1) + " t";
+      $("homeValue").textContent = home.toFixed(1) + " t";
+      $("dietValue").textContent = diet.toFixed(1) + " t";
+      $("wasteValue").textContent = waste.toFixed(1) + " t";
+
+      $("transportPercent").textContent = tP + "%";
+      $("homePercent").textContent = hP + "%";
+      $("dietPercent").textContent = dP + "%";
+      $("wastePercent").textContent = wP + "%";
+
+      $("transportBar").style.width = tP + "%";
+      $("homeBar").style.width = hP + "%";
+      $("dietBar").style.width = dP + "%";
+      $("wasteBar").style.width = wP + "%";
+
+      // simple interpretation
+      const avgReference = 4.5;
+      const scorePack = langPack.score;
+      let label;
+      let context;
+      let progressWidth;
+
+      if (total > 0 && total < avgReference * 0.6) {
+        label = scorePack.lowLabel;
+        context = scorePack.lowContext;
+        progressWidth = 28;
+      } else if (total > avgReference * 1.4) {
+        label = scorePack.highLabel;
+        context = scorePack.highContext;
+        progressWidth = 78;
+      } else if (total > 0) {
+        label = scorePack.midLabel;
+        context = scorePack.midContext;
+        progressWidth = 50;
+      } else {
+        label = "";
+        context = "";
+        progressWidth = 0;
+      }
+
+      if (total > 0) {
+        $("scoreTagLabel").textContent = label;
+        $("scoreContext").textContent = context;
+      }
+
+      $("progressFill").style.width = progressWidth + "%";
+
+      // dynamic tip based on biggest category
+      const biggest = [
+        { key: "Transport", value: transport },
+        { key: "Home energy", value: home },
+        { key: "Diet & food", value: diet },
+        { key: "Waste & stuff", value: waste },
+      ].sort((a, b) => b.value - a.value)[0];
+
+      if (total <= 0 || biggest.value === 0) {
+        $("tipsCard").innerHTML = `
+          <div class="tips-icon">💡</div>
+          <div>
+            <span class="tips-strong">${langPack.tipsEmptyStrong}</span>
+            <span>${langPack.tipsEmptyBody}</span>
+          </div>
+        `;
+      } else {
+        const tipText = langPack.tipsBiggest[biggest.key] || "";
+        const title =
+          currentLanguage === "hi"
+            ? "वर्तमान में सबसे बड़ा लीवर:"
+            : "Biggest lever right now:";
+        $("tipsCard").innerHTML = `
+          <div class="tips-icon">🎯</div>
+          <div>
+            <span class="tips-strong">${title}</span>
+            <span> ${biggest.key}. ${tipText}</span>
+          </div>
+        `;
+      }
+    }
+
+    function resetForm() {
+      [
+        "weeklyCarKm",
+        "weeklyPublicKm",
+        "flightsShort",
+        "flightsLong",
+        "electricityKwh",
+        "gasUse",
+        "mealsOut",
+        "wasteKg",
+      ].forEach((id) => {
+        $(id).value = "";
+      });
+
+      $("dietType").value = "average_meat";
+      $("shoppingHabit").value = "average";
+
+      updateResults({
+        total: 0,
+        transport: 0,
+        home: 0,
+        diet: 0,
+        waste: 0,
+      });
+    }
+
+    $("calculateBtn").addEventListener("click", calculateFootprint);
+    $("resetBtn").addEventListener("click", resetForm);
+
+    // initial state
+    applyTheme("anime");
+    applyFont("default");
+    applyLanguage("en");
+    resetForm();
+  </script>
+</body>
+</html>
+
